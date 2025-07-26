@@ -1,0 +1,161 @@
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.timelineItem {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+  border-left: 2px solid var(--portfolio-silver);
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+.timelineYear {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--portfolio-silver);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.timelineTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--portfolio-text);
+  margin-bottom: 0.5rem;
+}
+
+.timelineDescription {
+  font-size: 0.875rem;
+  color: var(--portfolio-text-secondary);
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+.timelineOrganization {
+  font-size: 0.75rem;
+  color: var(--portfolio-text-secondary);
+  opacity: 0.8;
+}
+
+.skillsContainer {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.skillBadge {
+  background: var(--portfolio-accent);
+  color: var(--portfolio-text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--portfolio-border);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.skillBadge:hover {
+  background: var(--portfolio-silver);
+  color: var(--portfolio-primary);
+  border-color: var(--portfolio-silver);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.skillLevel {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-left: 0.5rem;
+  font-weight: 500;
+}
+
+.legendContainer {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--portfolio-text-secondary);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.interestsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.interestCard {
+  background: var(--portfolio-card-bg);
+  border: 1px solid var(--portfolio-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--portfolio-shadow);
+}
+
+.interestCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--portfolio-shadow-lg);
+  border-color: var(--portfolio-silver);
+}
+
+.interestIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.interestTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--portfolio-text);
+  margin-bottom: 0.75rem;
+}
+
+.interestDescription {
+  font-size: 0.875rem;
+  color: var(--portfolio-text-secondary);
+  line-height: 1.6;
+}
+
+.sectionDivider {
+  height: 1px;
+  background: var(--portfolio-border);
+  margin: 3rem 0;
+}
+
+@media (max-width: 768px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .interestsGrid {
+    grid-template-columns: 1fr;
+  }
+} 

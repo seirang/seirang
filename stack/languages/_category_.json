@@ -1,0 +1,8 @@
+{
+  "label": "언어",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "JavaScript, TypeScript, Python, Java, HTML, CSS 등 프로그래밍 언어, 마크업 언어, 스타일시트 언어 관련 문서"
+  }
+} 

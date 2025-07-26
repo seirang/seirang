@@ -1,43 +1,25 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React from 'react';
 import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import Projects from '../components/Projects';
+import Contact from '../components/Contact';
+import {portfolioData} from '../data/portfolio';
 
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
+export default function Home(): React.JSX.Element {
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <h1>HELLO AH!</h1>
-      </main>
+      title="박세랑 포트폴리오"
+      description="컴퓨터학부 학생 박세랑의 포트폴리오입니다."
+    >
+      <Hero profile={portfolioData.profile} />
+      <About 
+        timeline={portfolioData.timeline} 
+        skills={portfolioData.skills}
+        interests={portfolioData.interests}
+      />
+      <Projects projects={portfolioData.projects} />
+      <Contact contact={portfolioData.contact} />
     </Layout>
   );
 }

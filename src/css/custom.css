@@ -1,30 +1,224 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --portfolio-primary: #1a1a1a;
+  --portfolio-secondary: #2d2d2d;
+  --portfolio-accent: #f5f5f5;
+  --portfolio-silver: #c0c0c0;
+  --portfolio-text: #333333;
+  --portfolio-text-secondary: #666666;
+  --portfolio-card-bg: #ffffff;
+  --portfolio-border: #e0e0e0;
+  --portfolio-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --portfolio-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --portfolio-primary: #ffffff;
+  --portfolio-secondary: #f5f5f5;
+  --portfolio-accent: #2d2d2d;
+  --portfolio-silver: #c0c0c0;
+  --portfolio-text: #ffffff;
+  --portfolio-text-secondary: #cccccc;
+  --portfolio-card-bg: #1a1a1a;
+  --portfolio-border: #404040;
+  --portfolio-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --portfolio-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-section {
+  padding: 4rem 0;
+}
+
+.portfolio-section:nth-child(even) {
+  background: var(--portfolio-accent);
+}
+
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.portfolio-card {
+  background: var(--portfolio-card-bg);
+  border: 1px solid var(--portfolio-border);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: var(--portfolio-shadow);
+  transition: all 0.3s ease;
+}
+
+.portfolio-card:hover {
+  box-shadow: var(--portfolio-shadow-lg);
+  border-color: var(--portfolio-silver);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--portfolio-text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--portfolio-text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.portfolio-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-badge {
+  background: var(--portfolio-accent);
+  color: var(--portfolio-text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--portfolio-border);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.portfolio-badge:hover {
+  background: var(--portfolio-silver);
+  color: var(--portfolio-primary);
+  border-color: var(--portfolio-silver);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.portfolio-button {
+  background: var(--portfolio-silver);
+  color: var(--portfolio-primary);
+  border: 2px solid var(--portfolio-silver);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portfolio-button:hover {
+  background: white;
+  color: var(--portfolio-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--portfolio-shadow-lg);
+  text-decoration: none;
+}
+
+.portfolio-divider {
+  height: 1px;
+  background: var(--portfolio-border);
+  margin: 3rem 0;
+}
+
+.footer {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-top: 1px solid var(--portfolio-border);
+  padding: 3rem 0 2rem;
+}
+
+.footer__title {
+  color: var(--portfolio-text);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.025em;
+}
+
+.footer__link-item {
+  color: var(--portfolio-text-secondary);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer__link-item:hover {
+  color: var(--portfolio-silver);
+  text-decoration: none;
+  transform: translateX(2px);
+}
+
+.footer__copyright {
+  color: var(--portfolio-text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--portfolio-border);
+}
+
+[data-theme='dark'] .footer {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  border-top: 1px solid #404040;
+}
+
+[data-theme='dark'] .footer__title {
+  color: var(--portfolio-silver);
+}
+
+[data-theme='dark'] .footer__link-item {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: var(--portfolio-silver);
+}
+
+[data-theme='dark'] .footer__copyright {
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    padding: 0 1rem;
+  }
+  
+  .portfolio-card {
+    padding: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .portfolio-section {
+    padding: 3rem 0;
+  }
+  
+  .footer {
+    padding: 2rem 0 1.5rem;
+  }
+  
+  .footer__title {
+    font-size: 1rem;
+  }
+  
+  .footer__link-item {
+    font-size: 0.85rem;
+  }
 }
