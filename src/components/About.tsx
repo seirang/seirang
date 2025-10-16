@@ -1,4 +1,5 @@
 import type {ReactNode} from 'react';
+import {useEffect, useState} from 'react';
 import Link from '@docusaurus/Link';
 import type {TimelineItem, Skill, Interest} from '../types/portfolio';
 import {getSkillLink} from '../utils/skillLinks';
@@ -11,6 +12,27 @@ interface AboutProps {
 }
 
 export default function About({timeline, skills, interests}: AboutProps): ReactNode {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    const checkTheme = () => {
+      setIsDarkTheme(document.documentElement.getAttribute('data-theme') === 'dark');
+    };
+    
+    checkTheme();
+    
+    // Listen for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+    
+    return () => observer.disconnect();
+  }, []);
+
   const getDarkThemeLevelColor = (level: string) => {
     switch (level) {
       case '고급':
@@ -38,7 +60,10 @@ export default function About({timeline, skills, interests}: AboutProps): ReactN
   };
 
   const getLevelColor = (level: string) => {
-    const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (!isClient) {
+      // Return default light theme color during SSR
+      return getLightThemeLevelColor(level);
+    }
     
     if (isDarkTheme) {
       return getDarkThemeLevelColor(level);
@@ -48,7 +73,10 @@ export default function About({timeline, skills, interests}: AboutProps): ReactN
   };
 
   const getTextColor = (level: string) => {
-    const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (!isClient) {
+      // Return default light theme text color during SSR
+      return '#ffffff';
+    }
     
     if (isDarkTheme) {
       return '#1a202c';
