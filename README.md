@@ -1,2 +1,3 @@
-## Kyngpook National University
-## Majoring in Computer Science and Engineering
+## Name: Seirang
+## University: Kyungpook National University
+## Major: Computer Science and Engineering
